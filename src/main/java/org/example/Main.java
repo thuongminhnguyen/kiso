@@ -61,7 +61,18 @@ public class Main {
                         cs.addRect(minX, minY, bigWidth, bigHeight);
                         cs.stroke();
                     }
+                    // In ra tọa độ 4 góc chi tiết của box tổng hợp
+                    System.out.println("==============================");
+                    System.out.printf("Trang %d: Detect vùng tổng hợp\n", pageIndex + 1);
+                    System.out.printf("Bounding box tổng hợp: x=%.2f, y=%.2f, w=%.2f, h=%.2f\n", minX, minY, bigWidth, bigHeight);
+                    System.out.println("Tọa độ 4 góc tổng hợp:");
+                    System.out.printf("  Góc trái dưới: (%.2f, %.2f)\n", minX, minY);
+                    System.out.printf("  Góc phải dưới: (%.2f, %.2f)\n", minX + bigWidth, minY);
+                    System.out.printf("  Góc phải trên: (%.2f, %.2f)\n", minX + bigWidth, minY + bigHeight);
+                    System.out.printf("  Góc trái trên: (%.2f, %.2f)\n", minX, minY + bigHeight);
+                    System.out.println("==============================");
                 }
+
 
                 File out = new File(input.getParentFile(), "output-marked.pdf");
                 outDoc.save(out);
@@ -77,16 +88,16 @@ public class Main {
                 }
             }
             // In ra tọa độ 4 góc chi tiết
-            for (FoundBox fb : boxes) {
-                System.out.println("------------------------------");
-                System.out.printf("Trang %d: Detect vùng: %s\n", fb.pageIndex + 1, fb.text.replace("\n", " | "));
-                System.out.printf("Bounding box: x=%.2f, y=%.2f, w=%.2f, h=%.2f\n", fb.x, fb.y, fb.width, fb.height);
-                System.out.println("Tọa độ 4 góc:");
-                System.out.printf("  Góc trái dưới: (%.2f, %.2f)\n", fb.x, fb.y);
-                System.out.printf("  Góc phải dưới: (%.2f, %.2f)\n", fb.x + fb.width, fb.y);
-                System.out.printf("  Góc phải trên: (%.2f, %.2f)\n", fb.x + fb.width, fb.y + fb.height);
-                System.out.printf("  Góc trái trên: (%.2f, %.2f)\n", fb.x, fb.y + fb.height);
-            }
+//            for (FoundBox fb : boxes) {
+//                System.out.println("------------------------------");
+//                System.out.printf("Trang %d: Detect vùng: %s\n", fb.pageIndex + 1, fb.text.replace("\n", " | "));
+//                System.out.printf("Bounding box: x=%.2f, y=%.2f, w=%.2f, h=%.2f\n", fb.x, fb.y, fb.width, fb.height);
+//                System.out.println("Tọa độ 4 góc:");
+//                System.out.printf("  Góc trái dưới: (%.2f, %.2f)\n", fb.x, fb.y);
+//                System.out.printf("  Góc phải dưới: (%.2f, %.2f)\n", fb.x + fb.width, fb.y);
+//                System.out.printf("  Góc phải trên: (%.2f, %.2f)\n", fb.x + fb.width, fb.y + fb.height);
+//                System.out.printf("  Góc trái trên: (%.2f, %.2f)\n", fb.x, fb.y + fb.height);
+//            }
         } catch (IOException e) {
             e.printStackTrace();
         }
