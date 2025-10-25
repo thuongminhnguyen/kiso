@@ -78,14 +78,14 @@ public class Main {
                 outDoc.save(out);
                 System.out.println("Đã vẽ bounding box màu xanh lá cây và lưu ra: " + out.getAbsolutePath());
                 // Render trang PDF có bounding box ra PNG
-                try {
-                    org.apache.pdfbox.rendering.PDFRenderer renderer = new org.apache.pdfbox.rendering.PDFRenderer(outDoc);
-                    java.awt.image.BufferedImage image = renderer.renderImageWithDPI(0, 150);
-                    javax.imageio.ImageIO.write(image, "png", new File(input.getParentFile(), "output-marked.png"));
-                    System.out.println("Đã xuất ảnh bounding box ra: " + new File(input.getParentFile(), "output-marked.png").getAbsolutePath());
-                } catch (Exception ex) {
-                    System.err.println("Lỗi khi xuất ảnh PNG: " + ex.getMessage());
-                }
+//                try {
+//                    org.apache.pdfbox.rendering.PDFRenderer renderer = new org.apache.pdfbox.rendering.PDFRenderer(outDoc);
+//                    java.awt.image.BufferedImage image = renderer.renderImageWithDPI(0, 150);
+//                    javax.imageio.ImageIO.write(image, "png", new File(input.getParentFile(), "output-marked.png"));
+//                    System.out.println("Đã xuất ảnh bounding box ra: " + new File(input.getParentFile(), "output-marked.png").getAbsolutePath());
+//                } catch (Exception ex) {
+//                    System.err.println("Lỗi khi xuất ảnh PNG: " + ex.getMessage());
+//                }
             }
             // In ra tọa độ 4 góc chi tiết
 //            for (FoundBox fb : boxes) {
